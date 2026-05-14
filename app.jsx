@@ -231,6 +231,149 @@ function Hero({ name, tagline, layout }) {
   );
 }
 
+// ── Mystic 3D Orb — rotating sacred geometry, floating particles ─────────────
+function MysticOrb() {
+  // Orbiting particles — fixed positions/angles, randomized once
+  const particles = useMemo(() => Array.from({ length: 14 }, (_, i) => ({
+    id: i,
+    radius: 110 + Math.random() * 60,
+    angle: (i * 360) / 14 + Math.random() * 20,
+    size: 1.4 + Math.random() * 2.2,
+    duration: 18 + Math.random() * 16,
+    delay: -Math.random() * 30,
+    direction: i % 2 === 0 ? 1 : -1,
+  })), []);
+
+  return (
+    <div className="mystic-orb">
+      {/* Outer aura */}
+      <div className="orb-aura" />
+
+      {/* Rotating sacred-geometry rings (3D tilted) */}
+      <div className="orb-stage">
+        <div className="orb-ring orb-ring-1">
+          <svg viewBox="-100 -100 200 200" aria-hidden="true">
+            <circle cx="0" cy="0" r="92" fill="none" stroke="var(--gold)"
+                    strokeWidth="0.4" strokeOpacity="0.55"
+                    strokeDasharray="2 6" />
+            {/* Zodiac-like ticks */}
+            {Array.from({ length: 12 }).map((_, i) => {
+              const a = (i * 30) * Math.PI / 180;
+              return (
+                <line key={i}
+                      x1={Math.cos(a) * 86}  y1={Math.sin(a) * 86}
+                      x2={Math.cos(a) * 96}  y2={Math.sin(a) * 96}
+                      stroke="var(--gold)" strokeWidth="0.6" strokeOpacity="0.8" />
+              );
+            })}
+            {/* Symbols at cardinals */}
+            {[0, 90, 180, 270].map((deg) => {
+              const a = deg * Math.PI / 180;
+              return (
+                <g key={deg} transform={`translate(${Math.cos(a) * 78} ${Math.sin(a) * 78})`}>
+                  <circle r="2.4" fill="var(--gold)" fillOpacity="0.85" />
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+
+        <div className="orb-ring orb-ring-2">
+          <svg viewBox="-100 -100 200 200" aria-hidden="true">
+            <circle cx="0" cy="0" r="74" fill="none" stroke="var(--gold)"
+                    strokeWidth="0.5" strokeOpacity="0.45" />
+            {/* Six-petal flower of life fragment */}
+            {[0, 60, 120, 180, 240, 300].map((deg) => {
+              const a = deg * Math.PI / 180;
+              return (
+                <circle key={deg}
+                        cx={Math.cos(a) * 26} cy={Math.sin(a) * 26}
+                        r="26" fill="none"
+                        stroke="var(--gold)" strokeWidth="0.4"
+                        strokeOpacity="0.45" />
+              );
+            })}
+          </svg>
+        </div>
+
+        <div className="orb-ring orb-ring-3">
+          <svg viewBox="-100 -100 200 200" aria-hidden="true">
+            <circle cx="0" cy="0" r="58" fill="none" stroke="var(--gold)"
+                    strokeWidth="0.5" strokeOpacity="0.7"
+                    strokeDasharray="1 4" />
+            {/* 8-pointed star */}
+            <g stroke="var(--gold)" strokeWidth="0.5" strokeOpacity="0.55" fill="none">
+              {[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5].map((deg) => {
+                const a = deg * Math.PI / 180;
+                return <line key={deg}
+                             x1={Math.cos(a) * -50} y1={Math.sin(a) * -50}
+                             x2={Math.cos(a) * 50}  y2={Math.sin(a) * 50} />;
+              })}
+            </g>
+          </svg>
+        </div>
+
+        {/* Central glowing sigil */}
+        <div className="orb-core">
+          <svg viewBox="-50 -50 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="core-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stopColor="#fff6e0" stopOpacity="0.95" />
+                <stop offset="40%" stopColor="var(--gold)" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="var(--gold)" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="core-inner" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stopColor="#fff" stopOpacity="1" />
+                <stop offset="100%" stopColor="#fff6e0" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle r="44" fill="url(#core-grad)" />
+            <circle r="18" fill="url(#core-inner)" />
+            {/* Crescent moon */}
+            <path d="M -8 -2 A 10 10 0 1 0 -8 -2.5 A 7 7 0 1 1 -8 -2 Z"
+                  fill="var(--bg)" fillOpacity="0.35" />
+            {/* Tiny inner star */}
+            <g transform="translate(6 -2)">
+              <path d="M0 -3 L0.8 -0.8 L3 0 L0.8 0.8 L0 3 L-0.8 0.8 L-3 0 L-0.8 -0.8 Z"
+                    fill="var(--gold)" />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      {/* Orbiting particles */}
+      <div className="orb-particles">
+        {particles.map((p) => (
+          <div
+            key={p.id}
+            className="orbit-track"
+            style={{
+              width: p.radius * 2,
+              height: p.radius * 2,
+              marginLeft: -p.radius,
+              marginTop:  -p.radius,
+              animation: `orbitSpin ${p.duration}s linear ${p.delay}s infinite ${p.direction < 0 ? 'reverse' : 'normal'}`,
+              transform: `rotate(${p.angle}deg)`,
+            }}
+          >
+            <span
+              className="orbit-dot"
+              style={{
+                width: p.size, height: p.size,
+                animation: `orbitPulse ${4 + (p.id % 4)}s ease-in-out infinite`,
+                animationDelay: `${p.id * 0.3}s`,
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Mystical caption */}
+      <div className="orb-caption latin">— Aperi Cor Tuum —</div>
+    </div>
+  );
+}
+
 // ── About ────────────────────────────────────────────────────────────────────
 function About({ name }) {
   return (
@@ -243,10 +386,7 @@ function About({ name }) {
       <div className="about-grid">
         <div className="about-portrait">
           <div className="portrait-frame">
-            <div className="portrait-placeholder">
-              <EyeGlyph />
-              <span className="portrait-label">תמונת פורטרט</span>
-            </div>
+            <MysticOrb />
             <div className="portrait-glow" />
           </div>
           <div className="portrait-caption display">
@@ -573,25 +713,32 @@ function Contact({ name, phone, email }) {
             <div className="contact-card-glow" />
             <div className="contact-row">
               <div className="contact-label latin">— Telephone —</div>
-              <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="contact-value display">
-                {phone}
-              </a>
+              {phone ? (
+                <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="contact-value display">
+                  {phone}
+                </a>
+              ) : (
+                <span className="contact-value display contact-pending">— יתעדכן בקרוב —</span>
+              )}
               <div className="contact-hint">זמינה ימים א׳–ה׳ · 10:00–21:00</div>
             </div>
             <div className="contact-row">
               <div className="contact-label latin">— WhatsApp —</div>
-              <a href={`https://wa.me/${phone.replace(/[^\d]/g, '')}`}
-                 className="contact-value display">{phone}</a>
+              {phone ? (
+                <a href={`https://wa.me/${phone.replace(/[^\d]/g, '')}`}
+                   className="contact-value display">{phone}</a>
+              ) : (
+                <span className="contact-value display contact-pending">— יתעדכן בקרוב —</span>
+              )}
               <div className="contact-hint">להודעות בכל שעה — מענה במהלך היום</div>
             </div>
             <div className="contact-row">
               <div className="contact-label latin">— Email —</div>
-              <a href={`mailto:${email}`} className="contact-value display">{email}</a>
-            </div>
-            <div className="contact-row">
-              <div className="contact-label latin">— Studio —</div>
-              <span className="contact-value display">— הכתובת תתעדכן —</span>
-              <div className="contact-hint">מרחב שקט, חניה בחינם, נגישות מלאה</div>
+              {email ? (
+                <a href={`mailto:${email}`} className="contact-value display">{email}</a>
+              ) : (
+                <span className="contact-value display contact-pending">— יתעדכן בקרוב —</span>
+              )}
             </div>
           </div>
         </div>
@@ -674,8 +821,8 @@ function App() {
   const [details, setDetails] = useState({
     name: 'מרים',
     tagline: 'מסע של הקשבה אל הקלפים, הלב והעולם. מרחב רך לפגוש את עצמך במלוא הכבוד.',
-    phone: '050-000-0000',
-    email: 'info@example.co.il',
+    phone: '',
+    email: '',
   });
 
   // Apply palette to CSS variables
