@@ -548,7 +548,7 @@ function Testimonials() {
 }
 
 // ── Contact ──────────────────────────────────────────────────────────────────
-function Contact({ name, phone, email, instagram }) {
+function Contact({ name, phone, email }) {
   const [form, setForm] = useState({ name: '', phone: '', topic: 'קריאה אישית', message: '' });
   const [sent, setSent] = useState(false);
   const submit = (e) => {
@@ -592,11 +592,6 @@ function Contact({ name, phone, email, instagram }) {
               <div className="contact-label latin">— Studio —</div>
               <span className="contact-value display">— הכתובת תתעדכן —</span>
               <div className="contact-hint">מרחב שקט, חניה בחינם, נגישות מלאה</div>
-            </div>
-            <div className="contact-social">
-              <a href={`https://instagram.com/${instagram}`} className="social-link">
-                <span>{instagram}</span>
-              </a>
             </div>
           </div>
         </div>
@@ -677,11 +672,10 @@ function App() {
   // Persistent placeholder content the user will fill — kept in tweaks so it
   // can be edited from the panel and survives reload
   const [details, setDetails] = useState({
-    name: '— שם פרטי וזה —',
+    name: 'מרים',
     tagline: 'מסע של הקשבה אל הקלפים, הלב והעולם. מרחב רך לפגוש את עצמך במלוא הכבוד.',
     phone: '050-000-0000',
     email: 'info@example.co.il',
-    instagram: '@your.handle',
   });
 
   // Apply palette to CSS variables
@@ -710,7 +704,7 @@ function App() {
       <Oracle />
       <Testimonials />
       <Contact name={details.name} phone={details.phone}
-               email={details.email} instagram={details.instagram} />
+               email={details.email} />
       <Footer name={details.name} />
 
       <TweaksPanel title="התאמה אישית">
@@ -743,8 +737,6 @@ function App() {
                      onChange={(v) => setDetails({ ...details, phone: v })} />
           <TweakText label="אימייל" value={details.email}
                      onChange={(v) => setDetails({ ...details, email: v })} />
-          <TweakText label="אינסטגרם" value={details.instagram}
-                     onChange={(v) => setDetails({ ...details, instagram: v })} />
         </TweakSection>
       </TweaksPanel>
     </div>

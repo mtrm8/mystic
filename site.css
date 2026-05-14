@@ -883,7 +883,7 @@
 }
 .contact-card {
   position: relative;
-  padding: 44px 36px;
+  padding: 32px 36px 28px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
   border: 0.5px solid var(--line);
@@ -903,9 +903,10 @@
 }
 .contact-row {
   position: relative;
-  padding: 18px 0;
+  padding: 14px 0;
   border-bottom: 0.5px solid var(--line);
 }
+.contact-row:first-of-type { padding-top: 4px; }
 .contact-row:last-of-type { border-bottom: none; }
 .contact-label {
   font-size: 11px;
@@ -931,11 +932,12 @@ a.contact-value:hover { color: var(--gold); }
   letter-spacing: 0.04em;
 }
 .contact-social {
-  margin-top: 24px;
-  padding-top: 18px;
+  margin-top: 14px;
+  padding-top: 16px;
   border-top: 0.5px solid var(--line);
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 .social-link {
   display: inline-flex;
