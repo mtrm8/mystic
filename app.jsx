@@ -740,6 +740,23 @@ function Contact({ name, phone, email }) {
                 <span className="contact-value display contact-pending">— יתעדכן בקרוב —</span>
               )}
             </div>
+            {phone && (
+              <a href={`https://wa.me/${phone.replace(/[^\d]/g, '')}`}
+                 target="_blank" rel="noopener"
+                 className="whatsapp-cta"
+                 aria-label="פתיחת צ'אט בוואטסאפ">
+                <span className="whatsapp-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" width="22" height="22">
+                    <path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.3-.4C5.4 18 5 16.5 5 15c0-6.1 4.9-11 11-11s11 4.9 11 11-4.9 11-11 11zm6.1-8.2c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.5s1 2.9 1.1 3.1c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4z" />
+                  </svg>
+                </span>
+                <span className="whatsapp-text">
+                  <span className="whatsapp-title display">שליחת הודעה בוואטסאפ</span>
+                  <span className="whatsapp-sub">מענה מהיר · ישירות לצ'אט</span>
+                </span>
+                <span className="whatsapp-arrow" aria-hidden="true">←</span>
+              </a>
+            )}
           </div>
         </div>
 
@@ -821,7 +838,7 @@ function App() {
   const [details, setDetails] = useState({
     name: 'מרים',
     tagline: 'מסע של הקשבה אל הקלפים, הלב והעולם. מרחב רך לפגוש את עצמך במלוא הכבוד.',
-    phone: '',
+    phone: '050-000-0000',
     email: '',
   });
 
@@ -853,6 +870,23 @@ function App() {
       <Contact name={details.name} phone={details.phone}
                email={details.email} />
       <Footer name={details.name} />
+
+      {details.phone && (
+        <a
+          href={`https://wa.me/${details.phone.replace(/[^\d]/g, '')}`}
+          target="_blank"
+          rel="noopener"
+          className="whatsapp-float"
+          aria-label="פתיחת צ'אט בוואטסאפ"
+          title="שליחת הודעה בוואטסאפ"
+        >
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.3-.4C5.4 18 5 16.5 5 15c0-6.1 4.9-11 11-11s11 4.9 11 11-4.9 11-11 11zm6.1-8.2c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.5s1 2.9 1.1 3.1c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4z" />
+          </svg>
+          <span className="whatsapp-float-pulse" aria-hidden="true" />
+          <span className="whatsapp-float-label">צ'אט בוואטסאפ</span>
+        </a>
+      )}
 
       <TweaksPanel title="התאמה אישית">
         <TweakSection label="עיצוב">
