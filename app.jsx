@@ -806,14 +806,6 @@ function Contact({ name, phone, email, selectedTopic }) {
               )}
               <div className="contact-hint">להודעות בכל שעה — מענה במהלך היום</div>
             </div>
-            <div className="contact-row">
-              <div className="contact-label latin">— Email —</div>
-              {email ? (
-                <a href={`mailto:${email}`} className="contact-value display">{email}</a>
-              ) : (
-                <span className="contact-value display contact-pending">— יתעדכן בקרוב —</span>
-              )}
-            </div>
             {phone && (
               <a href={`https://wa.me/${phone.replace(/[^\d]/g, '').replace(/^0/, '972')}`}
                  target="_blank" rel="noopener"
