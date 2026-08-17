@@ -436,6 +436,7 @@ const SERVICES = [
     duration: 'פתיחה מלאה',
     subtitle: 'מים קדושים · טארוט · כף יד וקפה',
     price: 'מחיר בפרטי',
+    topicValue: 'מיסטיקה רוחנית — מים קדושים, טארוט, כף יד וקפה',
     desc: 'פתיחה במים קדושים, טארוט + קלפים + תמונה, קריאת בכף היד וקפה. חיבור מעמיק לקבלת בהירות, מענה לשאלות הלב והכוונה מדויקת.',
     features: [
       'פתיחה במים קדושים',
@@ -451,6 +452,7 @@ const SERVICES = [
     duration: 'טיהור וברכה',
     subtitle: 'הסרת עין הרע · פריון · רייקי',
     price: 'מחיר בפרטי',
+    topicValue: 'פתיחת מזל, הגנה מעין הרע וכישופים, פריון ורייקי',
     desc: 'פתיחת מזל, הגנה מעין הרע וכישופים, ברכה וליווי לפריון וילודה, וטיפולי רייקי לשחרור חסימות ואיזון אנרגטי עמוק.',
     features: [
       'פתיחת מזל והסרת חסימות',
@@ -467,6 +469,7 @@ const SERVICES = [
     duration: 'ייעוץ ממוקד תוצאות',
     subtitle: 'עברית · רוסית · קווקזית',
     price: 'מחיר בפרטי',
+    topicValue: 'הכוונה וייעוץ לפתיחת עסק (28 שנות ניסיון)',
     desc: 'שיחת ייעוץ מקצועית ורוחנית לפתיחת עסק בליווי 28 שנות ניסיון. גישה מחזקת, בונה ותומכת, שמשיגה תוצאות. שירות בעברית, רוסית וקווקזית.',
     features: [
       '28 שנות ניסיון בליווי עסקי והצלחה',
@@ -510,7 +513,7 @@ function ServiceIcon({ type }) {
   );
 }
 
-function Services() {
+function Services({ onSelectService }) {
   return (
     <section id="services" className="section section-services">
       <div className="section-head">
@@ -554,7 +557,18 @@ function Services() {
                 </li>
               ))}
             </ul>
-            <a href="#contact" className="service-cta">לתיאום מפגש ←</a>
+            <a
+              href="#contact"
+              className="service-cta"
+              onClick={(e) => {
+                if (onSelectService) {
+                  e.preventDefault();
+                  onSelectService(s.topicValue);
+                }
+              }}
+            >
+              לתיאום מפגש ←
+            </a>
           </article>
         ))}
       </div>
@@ -717,13 +731,20 @@ function Testimonials() {
 }
 
 // ── Contact ──────────────────────────────────────────────────────────────────
-function Contact({ name, phone, email }) {
+function Contact({ name, phone, email, selectedTopic }) {
   const [form, setForm] = useState({
     name: '',
     phone: '',
-    topic: 'מיסטיקה רוחנית — מים קדושים, טארוט, כף יד וקפה',
+    topic: selectedTopic || 'מיסטיקה רוחנית — מים קדושים, טארוט, כף יד וקפה',
     message: '',
   });
+
+  // Automatically sync form topic when user selects a package from services
+  useEffect(() => {
+    if (selectedTopic) {
+      setForm((prev) => ({ ...prev, topic: selectedTopic }));
+    }
+  }, [selectedTopic]);
   const [sent, setSent] = useState(false);
   const submit = (e) => {
     e.preventDefault();
@@ -884,6 +905,15 @@ function Footer({ name }) {
 // ── App ──────────────────────────────────────────────────────────────────────
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [selectedTopic, setSelectedTopic] = useState('מיסטיקה רוחנית — מים קדושים, טארוט, כף יד וקפה');
+
+  const handleSelectService = (topic) => {
+    setSelectedTopic(topic);
+    const contactEl = document.getElementById('contact');
+    if (contactEl) {
+      contactEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // Persistent placeholder content the user will fill — kept in tweaks so it
   // can be edited from the panel and survives reload
@@ -916,11 +946,11 @@ function App() {
       <Nav name={details.name} />
       <Hero name={details.name} tagline={details.tagline} layout={t.heroLayout} />
       <About name={details.name} />
-      <Services />
+      <Services onSelectService={handleSelectService} />
       <Oracle />
       <Testimonials />
       <Contact name={details.name} phone={details.phone}
-               email={details.email} />
+               email={details.email} selectedTopic={selectedTopic} />
       <Footer name={details.name} />
 
       {details.phone && (
