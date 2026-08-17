@@ -725,7 +725,8 @@ function Contact({ name, phone, email }) {
             <div className="contact-row">
               <div className="contact-label latin">— WhatsApp —</div>
               {phone ? (
-                <a href={`https://wa.me/${phone.replace(/[^\d]/g, '')}`}
+                <a href={`https://wa.me/${phone.replace(/[^\d]/g, '').replace(/^0/, '972')}`}
+                   target="_blank" rel="noopener"
                    className="contact-value display">{phone}</a>
               ) : (
                 <span className="contact-value display contact-pending">— יתעדכן בקרוב —</span>
@@ -741,7 +742,7 @@ function Contact({ name, phone, email }) {
               )}
             </div>
             {phone && (
-              <a href={`https://wa.me/${phone.replace(/[^\d]/g, '')}`}
+              <a href={`https://wa.me/${phone.replace(/[^\d]/g, '').replace(/^0/, '972')}`}
                  target="_blank" rel="noopener"
                  className="whatsapp-cta"
                  aria-label="פתיחת צ'אט בוואטסאפ">
@@ -775,7 +776,7 @@ function Contact({ name, phone, email }) {
               type="tel" required
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              placeholder="050-0000000" />
+              placeholder="053-922-3169" />
           </label>
           <label className="form-field">
             <span className="form-label">סוג הקריאה</span>
@@ -838,7 +839,7 @@ function App() {
   const [details, setDetails] = useState({
     name: 'מרים',
     tagline: 'מסע של הקשבה אל הקלפים, הלב והעולם. מרחב רך לפגוש את עצמך במלוא הכבוד.',
-    phone: '050-000-0000',
+    phone: '053-922-3169',
     email: '',
   });
 
@@ -873,7 +874,7 @@ function App() {
 
       {details.phone && (
         <a
-          href={`https://wa.me/${details.phone.replace(/[^\d]/g, '')}`}
+          href={`https://wa.me/${details.phone.replace(/[^\d]/g, '').replace(/^0/, '972')}`}
           target="_blank"
           rel="noopener"
           className="whatsapp-float"
