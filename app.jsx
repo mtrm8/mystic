@@ -776,7 +776,7 @@ function Contact({ name, phone, email }) {
               type="tel" required
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              placeholder="053-922-3169" />
+              placeholder="053-964-6269" />
           </label>
           <label className="form-field">
             <span className="form-label">סוג הקריאה</span>
@@ -839,7 +839,7 @@ function App() {
   const [details, setDetails] = useState({
     name: 'מרים',
     tagline: 'מסע של הקשבה אל הקלפים, הלב והעולם. מרחב רך לפגוש את עצמך במלוא הכבוד.',
-    phone: '053-922-3169',
+    phone: '053-964-6269',
     email: '',
   });
 
