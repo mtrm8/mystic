@@ -216,7 +216,7 @@ function Hero({ name, tagline, layout }) {
           <i className="dot" />
           <span>דיסקרטיות מלאה</span>
           <i className="dot" />
-          <span>15+ שנות ניסיון</span>
+          <span>14 שנות ניסיון</span>
         </div>
       </div>
 
@@ -396,31 +396,29 @@ function About({ name }) {
         </div>
         <div className="about-text">
           <p className="lede">
-            כבר יותר מחמש־עשרה שנה אני מלווה אנשים במסע אל תוך עצמם —
-            דרך הקלפים, האינטואיציה, והאזנה עמוקה ללב.
+            כבר 14 שנה אני מלווה אנשים במסע אל תוך עצמם —
+            דרך מיסטיקה רוחנית, פתיחה במים קדושים, קלפי טארוט, קריאה בכף היד וקפה, והאזנה עמוקה ללב.
           </p>
           <p>
-            הטארוט בעיניי איננו ניחוש עתידות; הוא ראי. הוא מאיר את מה שכבר יודעת
-            הנשמה, אך השכל עוד לא הצליח לנסח במילים. בכל קריאה אני מציעה מרחב
-            בטוח, רך וקשוב — מקום שבו אפשר לפגוש את האמת בלי שיפוט, רק
-            באהבה.
+            אני מעניקה מענה מקיף הכולל פתיחת מזל, הגנה מעין הרע וכישופים, ברכה לפריון וילודה,
+            טיפולי רייקי לאיזון אנרגטי, והכוונה וייעוץ מקצועי ורוחני לפתיחת עסק בגישה מחזקת ותומכת שמשיגה תוצאות.
           </p>
           <p>
-            הקריאות מתקיימות אצלי בסטודיו השקט, או בשיחה טלפונית אינטימית.
-            אין צורך בידע מוקדם — רק בנכונות להיפתח לשאלות שבאמת חשובות לך.
+            הייעוץ והקריאות מתקיימים במרחב בטוח ואינטימי — בפגישה אישית או בשיחה טלפונית.
+            השירות ניתן בשפות: עברית, רוסית וקווקזית.
           </p>
           <ul className="credentials">
             <li>
-              <span className="cred-num display">15+</span>
-              <span className="cred-lbl">שנות ניסיון בקריאת קלפים</span>
+              <span className="cred-num display">14</span>
+              <span className="cred-lbl">שנות ניסיון והצלחה</span>
             </li>
             <li>
-              <span className="cred-num display">3,000+</span>
-              <span className="cred-lbl">קריאות לאורך השנים</span>
+              <span className="cred-num display">3</span>
+              <span className="cred-lbl">שפות: עברית, רוסית וקווקזית</span>
             </li>
             <li>
               <span className="cred-num display">∞</span>
-              <span className="cred-lbl">לב פתוח לכל אדם</span>
+              <span className="cred-lbl">גישה מחזקת ותומכת</span>
             </li>
           </ul>
         </div>
@@ -432,60 +430,81 @@ function About({ name }) {
 // ── Services ─────────────────────────────────────────────────────────────────
 const SERVICES = [
   {
-    icon: 'crescent',
-    title: 'קריאה אישית',
-    duration: '45 דקות',
+    icon: 'mystic',
+    tag: 'קריאה וראייה',
+    title: 'מיסטיקה רוחנית',
+    duration: 'פתיחה מלאה',
+    subtitle: 'מים קדושים · טארוט · כף יד וקפה',
     price: '₪ —',
-    desc: 'מפגש מעמיק על שאלה אחת מרכזית בחייך — אהבה, קריירה, חיבור פנימי. פרישת קלפים מותאמת אישית והתבוננות יחד במשמעות העמוקה.',
-    features: ['פריסה של 7 קלפים', 'תיעוד הקריאה במייל', 'מתנה: קלף יומי לחודש שלאחר מכן'],
+    desc: 'פתיחה במים קדושים, טארוט + קלפים + תמונה, קריאת בכף היד וקפה. חיבור מעמיק לקבלת בהירות, מענה לשאלות הלב והכוונה מדויקת.',
+    features: [
+      'פתיחה במים קדושים',
+      'טארוט + קלפים + תמונה',
+      'קריאת בכף היד וקפה',
+      'ראייה אינטואיטיבית ומענה מעמיק',
+    ],
   },
   {
-    icon: 'sun',
-    title: 'קריאה זוגית',
-    duration: '75 דקות',
+    icon: 'hamsa',
+    tag: 'הכי מבוקש',
+    title: 'פתיחת מזל, הגנה ורייקי',
+    duration: 'טיהור וברכה',
+    subtitle: 'הסרת עין הרע · פריון · רייקי',
     price: '₪ —',
-    desc: 'מסע משותף לזוגות — בין אם אתם בקשר ארוך או בתחילתו של משהו חדש. הקלפים פותחים שיחה שלעיתים קשה לפתוח לבד.',
-    features: ['פריסה זוגית של 12 קלפים', 'מרחב לשני הצדדים', 'הנחיה לתרגול ביתי'],
+    desc: 'פתיחת מזל, הגנה מעין הרע וכישופים, ברכה וליווי לפריון וילודה, וטיפולי רייקי לשחרור חסימות ואיזון אנרגטי עמוק.',
+    features: [
+      'פתיחת מזל והסרת חסימות',
+      'הגנה מעין הרע וכישופים',
+      'ברכה וליווי לפריון וילודה',
+      'טיפולי רייקי ואיזון אנרגטי',
+    ],
     featured: true,
   },
   {
     icon: 'star',
-    title: 'מפת השנה',
-    duration: '90 דקות',
+    tag: '14 שנות ניסיון',
+    title: 'הכוונה וייעוץ לפתיחת עסק',
+    duration: 'ייעוץ ממוקד תוצאות',
+    subtitle: 'עברית · רוסית · קווקזית',
     price: '₪ —',
-    desc: 'בתחילת שנה, יום הולדת או צומת חיים — פריסה רחבה של 13 קלפים, אחד לכל חודש, שמציעה תמונה כוללת של הדרך שלפנייך.',
-    features: ['13 קלפים — חודש לחודש', 'מסמך מודפס למזכרת', 'מפגש המשך אחרי 6 חודשים'],
+    desc: 'שיחת ייעוץ מקצועית ורוחנית לפתיחת עסק בליווי 14 שנות ניסיון. גישה מחזקת, בונה ותומכת, שמשיגה תוצאות. שירות בעברית, רוסית וקווקזית.',
+    features: [
+      '14 שנות ניסיון בליווי עסקי והצלחה',
+      'שיחת ייעוץ מקצועית ורוחנית',
+      'גישה מחזקת, בונה ותומכת שמשיגה תוצאות',
+      'דוברת עברית, רוסית וקווקזית',
+    ],
   },
 ];
 
 function ServiceIcon({ type }) {
-  if (type === 'crescent') return (
+  if (type === 'mystic' || type === 'crescent') return (
     <svg viewBox="0 0 60 60" width="48" height="48" aria-hidden="true">
-      <path d="M 42 12 A 22 22 0 1 0 42 48 A 16 16 0 1 1 42 12 Z"
+      <path d="M 38 12 A 20 20 0 1 0 38 48 A 15 15 0 1 1 38 12 Z"
             fill="none" stroke="var(--gold)" strokeWidth="0.9" />
-      <circle cx="22" cy="22" r="1.2" fill="var(--gold)" />
-      <circle cx="14" cy="38" r="0.9" fill="var(--gold)" fillOpacity="0.6" />
+      <path d="M 27 23 C 27 23 22 29 22 33 A 5 5 0 0 0 32 33 C 32 29 27 23 27 23 Z"
+            fill="var(--gold)" fillOpacity="0.35" stroke="var(--gold)" strokeWidth="0.8" />
+      <circle cx="18" cy="20" r="1.3" fill="var(--gold)" />
+      <circle cx="15" cy="38" r="1" fill="var(--gold)" fillOpacity="0.7" />
     </svg>
   );
-  if (type === 'sun') return (
+  if (type === 'hamsa' || type === 'sun') return (
     <svg viewBox="0 0 60 60" width="48" height="48" aria-hidden="true">
-      <circle cx="30" cy="30" r="10" fill="none" stroke="var(--gold)" strokeWidth="0.9" />
-      <circle cx="30" cy="30" r="3"  fill="var(--gold)" fillOpacity="0.6" />
-      {[0,30,60,90,120,150,180,210,240,270,300,330].map(a => {
-        const r1=14, r2=20;
-        const x1=30+Math.cos(a*Math.PI/180)*r1, y1=30+Math.sin(a*Math.PI/180)*r1;
-        const x2=30+Math.cos(a*Math.PI/180)*r2, y2=30+Math.sin(a*Math.PI/180)*r2;
-        return <line key={a} x1={x1} y1={y1} x2={x2} y2={y2} stroke="var(--gold)" strokeWidth="0.7" />;
-      })}
+      <circle cx="30" cy="30" r="23" fill="none" stroke="var(--gold)" strokeWidth="0.5" strokeDasharray="2 3" strokeOpacity="0.6" />
+      <path d="M 23 44 C 19 44 18 38 18 33 C 18 29 16 27 17 24 C 18 21 21 22 22 25 C 22 19 24 16 26 16 C 28 16 29 19 29 23 C 29 19 30 16 32 16 C 34 16 36 19 36 25 C 37 22 40 21 41 24 C 42 27 40 29 40 33 C 40 38 39 44 35 44 Z"
+            fill="none" stroke="var(--gold)" strokeWidth="0.9" />
+      <path d="M 23 33 Q 29 27 35 33 Q 29 39 23 33 Z" fill="none" stroke="var(--gold)" strokeWidth="0.8" />
+      <circle cx="29" cy="33" r="2.2" fill="var(--gold)" />
     </svg>
   );
-  // star
+  // star / business guidance
   return (
     <svg viewBox="0 0 60 60" width="48" height="48" aria-hidden="true">
       <g transform="translate(30 30)" fill="none" stroke="var(--gold)" strokeWidth="0.9">
+        <circle r="22" strokeWidth="0.5" strokeDasharray="1 3" strokeOpacity="0.7" />
+        <path d="M 0 -22 L 4.5 -4.5 L 22 0 L 4.5 4.5 L 0 22 L -4.5 4.5 L -22 0 L -4.5 -4.5 Z" fill="var(--gold)" fillOpacity="0.15" />
         <path d="M 0 -22 L 4.5 -4.5 L 22 0 L 4.5 4.5 L 0 22 L -4.5 4.5 L -22 0 L -4.5 -4.5 Z" />
-        <circle r="3.5" fill="var(--gold)" fillOpacity="0.5" stroke="none" />
-        <circle r="10" strokeOpacity="0.4" />
+        <circle r="3.2" fill="var(--gold)" fillOpacity="0.6" stroke="none" />
       </g>
     </svg>
   );
@@ -499,19 +518,23 @@ function Services() {
         <h2 className="section-title display">השירותים שלי</h2>
         <Divider />
         <p className="section-sub">
-          שלוש דרכים להיפגש בקלפים — כל אחת בנויה לסוג שאלה אחר ולעומק אחר של הקשבה.
+          מגוון שירותים וקריאות רוחניות בהתאמה אישית — פתיחה במים, טארוט, פתיחת מזל, הגנה וייעוץ עסקי מבוסס 14 שנות ניסיון.
         </p>
       </div>
       <div className="services-grid">
         {SERVICES.map((s, i) => (
           <article key={i} className={`service-card ${s.featured ? 'service-featured' : ''}`}>
-            {s.featured && <div className="service-tag display">הכי מבוקש</div>}
+            {s.tag && <div className="service-tag display">{s.tag}</div>}
             <div className="service-icon"><ServiceIcon type={s.icon} /></div>
             <h3 className="service-title display">{s.title}</h3>
             <div className="service-meta">
               <span>{s.duration}</span>
-              <i className="dot" />
-              <span className="service-price">{s.price}</span>
+              {s.subtitle && (
+                <>
+                  <i className="dot" />
+                  <span>{s.subtitle}</span>
+                </>
+              )}
             </div>
             <p className="service-desc">{s.desc}</p>
             <ul className="service-features">
@@ -530,7 +553,7 @@ function Services() {
         ))}
       </div>
       <p className="services-note">
-        * המחירים יתעדכנו בעמוד זה. ניתן לשלם במזומן, בהעברה בנקאית או באמצעות אפליקציה.
+        * ניתן לתאם פגישה אישית או שיחת ייעוץ טלפונית · השירות ניתן בעברית, רוסית וקווקזית
       </p>
     </section>
   );
@@ -689,7 +712,12 @@ function Testimonials() {
 
 // ── Contact ──────────────────────────────────────────────────────────────────
 function Contact({ name, phone, email }) {
-  const [form, setForm] = useState({ name: '', phone: '', topic: 'קריאה אישית', message: '' });
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    topic: 'מיסטיקה רוחנית — מים קדושים, טארוט, כף יד וקפה',
+    message: '',
+  });
   const [sent, setSent] = useState(false);
   const submit = (e) => {
     e.preventDefault();
@@ -779,12 +807,11 @@ function Contact({ name, phone, email }) {
               placeholder="053-964-6269" />
           </label>
           <label className="form-field">
-            <span className="form-label">סוג הקריאה</span>
+            <span className="form-label">סוג השירות</span>
             <select value={form.topic} onChange={(e) => setForm({ ...form, topic: e.target.value })}>
-              <option>קריאה אישית</option>
-              <option>קריאה זוגית</option>
-              <option>מפת השנה</option>
-              <option>קלף יומי / יעוץ קצר</option>
+              <option>מיסטיקה רוחנית — מים קדושים, טארוט, כף יד וקפה</option>
+              <option>פתיחת מזל, הגנה מעין הרע וכישופים, פריון ורייקי</option>
+              <option>הכוונה וייעוץ לפתיחת עסק (14 שנות ניסיון)</option>
               <option>אחר — אסביר בהודעה</option>
             </select>
           </label>
