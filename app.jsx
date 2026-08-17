@@ -735,10 +735,11 @@ function Contact({ name, phone, email }) {
 
     const fullMessage = messageLines.join('\n');
     const targetPhone = (phone || '053-964-6269').replace(/[^\d]/g, '').replace(/^0/, '972');
-    const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(fullMessage)}`;
+    const waUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodeURIComponent(fullMessage)}`;
 
     setSent(true);
-    window.open(waUrl, '_blank');
+    // Direct navigation bypasses browser popup blockers on mobile and desktop
+    window.location.href = waUrl;
     setTimeout(() => setSent(false), 4000);
   };
   return (
