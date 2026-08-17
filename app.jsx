@@ -731,7 +731,7 @@ function Testimonials() {
 }
 
 // ── Contact ──────────────────────────────────────────────────────────────────
-function Contact({ name, phone, email, selectedTopic }) {
+function Contact({ name, phone, selectedTopic }) {
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -913,7 +913,6 @@ function App() {
     name: 'מרים',
     tagline: 'מסע של הקשבה אל הקלפים, הלב והעולם. מרחב רך לפגוש את עצמך במלוא הכבוד.',
     phone: '053-964-6269',
-    email: '',
   });
 
   // Apply palette to CSS variables
@@ -942,7 +941,7 @@ function App() {
       <Oracle />
       <Testimonials />
       <Contact name={details.name} phone={details.phone}
-               email={details.email} selectedTopic={selectedTopic} />
+               selectedTopic={selectedTopic} />
       <Footer name={details.name} />
 
       {details.phone && (
@@ -990,8 +989,6 @@ function App() {
                      onChange={(v) => setDetails({ ...details, name: v })} />
           <TweakText label="טלפון" value={details.phone}
                      onChange={(v) => setDetails({ ...details, phone: v })} />
-          <TweakText label="אימייל" value={details.email}
-                     onChange={(v) => setDetails({ ...details, email: v })} />
         </TweakSection>
       </TweaksPanel>
     </div>
