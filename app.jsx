@@ -216,7 +216,7 @@ function Hero({ name, tagline, layout }) {
           <i className="dot" />
           <span>דיסקרטיות מלאה</span>
           <i className="dot" />
-          <span>14 שנות ניסיון</span>
+          <span>28 שנות ניסיון</span>
         </div>
       </div>
 
@@ -396,7 +396,7 @@ function About({ name }) {
         </div>
         <div className="about-text">
           <p className="lede">
-            כבר 14 שנה אני מלווה אנשים במסע אל תוך עצמם —
+            כבר 28 שנה אני מלווה אנשים במסע אל תוך עצמם —
             דרך מיסטיקה רוחנית, פתיחה במים קדושים, קלפי טארוט, קריאה בכף היד וקפה, והאזנה עמוקה ללב.
           </p>
           <p>
@@ -409,7 +409,7 @@ function About({ name }) {
           </p>
           <ul className="credentials">
             <li>
-              <span className="cred-num display">14</span>
+              <span className="cred-num display">28</span>
               <span className="cred-lbl">שנות ניסיון והצלחה</span>
             </li>
             <li>
@@ -462,14 +462,14 @@ const SERVICES = [
   },
   {
     icon: 'star',
-    tag: '14 שנות ניסיון',
+    tag: '28 שנות ניסיון',
     title: 'הכוונה וייעוץ לפתיחת עסק',
     duration: 'ייעוץ ממוקד תוצאות',
     subtitle: 'עברית · רוסית · קווקזית',
     price: '₪ —',
-    desc: 'שיחת ייעוץ מקצועית ורוחנית לפתיחת עסק בליווי 14 שנות ניסיון. גישה מחזקת, בונה ותומכת, שמשיגה תוצאות. שירות בעברית, רוסית וקווקזית.',
+    desc: 'שיחת ייעוץ מקצועית ורוחנית לפתיחת עסק בליווי 28 שנות ניסיון. גישה מחזקת, בונה ותומכת, שמשיגה תוצאות. שירות בעברית, רוסית וקווקזית.',
     features: [
-      '14 שנות ניסיון בליווי עסקי והצלחה',
+      '28 שנות ניסיון בליווי עסקי והצלחה',
       'שיחת ייעוץ מקצועית ורוחנית',
       'גישה מחזקת, בונה ותומכת שמשיגה תוצאות',
       'דוברת עברית, רוסית וקווקזית',
@@ -518,7 +518,7 @@ function Services() {
         <h2 className="section-title display">השירותים שלי</h2>
         <Divider />
         <p className="section-sub">
-          מגוון שירותים וקריאות רוחניות בהתאמה אישית — פתיחה במים, טארוט, פתיחת מזל, הגנה וייעוץ עסקי מבוסס 14 שנות ניסיון.
+          מגוון שירותים וקריאות רוחניות בהתאמה אישית — פתיחה במים, טארוט, פתיחת מזל, הגנה וייעוץ עסקי מבוסס 28 שנות ניסיון.
         </p>
       </div>
       <div className="services-grid">
@@ -829,7 +829,7 @@ function Contact({ name, phone, email }) {
             <select value={form.topic} onChange={(e) => setForm({ ...form, topic: e.target.value })}>
               <option>מיסטיקה רוחנית — מים קדושים, טארוט, כף יד וקפה</option>
               <option>פתיחת מזל, הגנה מעין הרע וכישופים, פריון ורייקי</option>
-              <option>הכוונה וייעוץ לפתיחת עסק (14 שנות ניסיון)</option>
+              <option>הכוונה וייעוץ לפתיחת עסק (28 שנות ניסיון)</option>
               <option>אחר — אסביר בהודעה</option>
             </select>
           </label>
