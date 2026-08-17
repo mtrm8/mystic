@@ -795,17 +795,7 @@ function Contact({ name, phone, selectedTopic }) {
               )}
               <div className="contact-hint">זמינה ימים א׳–ה׳ · 10:00–21:00</div>
             </div>
-            <div className="contact-row">
-              <div className="contact-label latin">— WhatsApp —</div>
-              {phone ? (
-                <a href={`https://wa.me/${phone.replace(/[^\d]/g, '').replace(/^0/, '972')}`}
-                   target="_blank" rel="noopener"
-                   className="contact-value display">{phone}</a>
-              ) : (
-                <span className="contact-value display contact-pending">— יתעדכן בקרוב —</span>
-              )}
-              <div className="contact-hint">להודעות בכל שעה — מענה במהלך היום</div>
-            </div>
+
             {phone && (
               <a href={`https://wa.me/${phone.replace(/[^\d]/g, '').replace(/^0/, '972')}`}
                  target="_blank" rel="noopener"
