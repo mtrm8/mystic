@@ -721,7 +721,24 @@ function Contact({ name, phone, email }) {
   const [sent, setSent] = useState(false);
   const submit = (e) => {
     e.preventDefault();
+    if (!form.name || !form.phone) return;
+
+    const messageLines = [
+      'שלום מרים, פנייה חדשה מאתר האינטרנט:',
+      `• שם מלא: ${form.name}`,
+      `• טלפון: ${form.phone}`,
+      `• שירות מבוקש: ${form.topic}`,
+    ];
+    if (form.message && form.message.trim()) {
+      messageLines.push(`• פרטים / שאלות: ${form.message.trim()}`);
+    }
+
+    const fullMessage = messageLines.join('\n');
+    const targetPhone = (phone || '053-964-6269').replace(/[^\d]/g, '').replace(/^0/, '972');
+    const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(fullMessage)}`;
+
     setSent(true);
+    window.open(waUrl, '_blank');
     setTimeout(() => setSent(false), 4000);
   };
   return (
@@ -824,10 +841,10 @@ function Contact({ name, phone, email }) {
               placeholder="שאלה ראשונית, העדפת שעות, או כל דבר שירגיש לך נכון..." />
           </label>
           <button type="submit" className="btn btn-primary btn-block">
-            {sent ? '✓ ההודעה נשלחה — אחזור אלייך בקרוב' : 'שליחה'}
+            {sent ? '✓ פותח שיחת WhatsApp לשליחה...' : 'שליחה ישירה לוואטסאפ'}
           </button>
           <p className="form-fine">
-            הפרטים שלך נשמרים בדיסקרטיות מלאה ולא מועברים לאף אחד.
+            בלחיצה על שליחה תיפתח שיחת WhatsApp עם כל הפרטים שמילאת ישירות לטלפון של מרים.
           </p>
         </form>
       </div>
